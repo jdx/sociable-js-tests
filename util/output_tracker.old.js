@@ -1,6 +1,5 @@
 // Copyright 2020-2022 Titanium I.T. LLC. MIT License.
 export default class OutputTracker {
-
   static create(emitter, event) {
     return new OutputTracker(emitter, event);
   }
@@ -19,7 +18,7 @@ export default class OutputTracker {
   }
 
   clear() {
-    const result = [ ...this._data ];
+    const result = [...this._data];
     this._data.length = 0;
     return result;
   }

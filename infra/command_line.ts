@@ -1,8 +1,11 @@
-export class CommandLine {
-  private process: NodeJS.Process;
+import { OutputTracker } from "../util/output_tracker";
 
-  constructor(p = process) {
-    this.process = p
+export class CommandLine {
+  private process: Process;
+  private outputTracker = new OutputTracker();
+
+  constructor(p: Process = process) {
+    this.process = p;
   }
 
   args() {
@@ -11,9 +14,13 @@ export class CommandLine {
 
   writeOutput(str: string) {
     this.process.stdout.write(str);
+    this.outputTracker.write(str);
+  }
+
+  trackOutput() {
+    this.outputTracker.start();
+    return this.outputTracker;
   }
 }
 
-class StubbedProcess {
-
-}
+type Process = Pick<NodeJS.Process, "argv" | "stdout">
