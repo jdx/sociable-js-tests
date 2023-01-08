@@ -3,14 +3,14 @@ import { CommandLine } from "../infra/command_line";
 import { StubbedProcess } from "../test/stubbed_process";
 import { StubbedProcessAlt } from "../test/stubbed_process_alt";
 import { rot13 } from "../rot13";
-describe('stubbed process 1', () => {
+describe("stubbed process 1", () => {
   it("it fails with no params", () => {
-    const output = run()
+    const output = run();
     expect(output).toEqual("Usage: rot13 <string>\n");
   });
 
   it("it works", () => {
-    const output = run("hello")
+    const output = run("hello");
     expect(output).toEqual(rot13("hello") + "\n");
   });
 
@@ -19,20 +19,20 @@ describe('stubbed process 1', () => {
     const tracker = cli.trackOutput();
 
     const app = new App(cli);
-    app.run()
+    app.run();
 
     return tracker.output;
   }
-})
+});
 
-describe('stubbed process 2', () => {
+describe("stubbed process 2", () => {
   it("it fails with no params", () => {
-    const output = run()
+    const output = run();
     expect(output).toEqual("Usage: rot13 <string>\n");
   });
 
   it("it works", () => {
-    const output = run("hello")
+    const output = run("hello");
     expect(output).toEqual(rot13("hello") + "\n");
   });
 
@@ -41,8 +41,8 @@ describe('stubbed process 2', () => {
     const cli = new CommandLine(process);
 
     const app = new App(cli);
-    app.run()
+    app.run();
 
-    return process.mockedOutput.join('');
+    return process.mockedOutput.join("");
   }
-})
+});

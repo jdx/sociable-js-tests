@@ -23,4 +23,4 @@ export class CommandLine {
   }
 }
 
-type Process = Pick<NodeJS.Process, "argv" | "stdout">
+type Process = Pick<NodeJS.Process, "argv" | "stdout">;
