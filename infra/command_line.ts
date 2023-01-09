@@ -1,5 +1,7 @@
 import { OutputTracker } from "../util/output_tracker";
 
+type Process = Pick<NodeJS.Process, "argv" | "stdout">;
+
 export class CommandLine {
   private process: Process;
   private outputTracker = new OutputTracker();
@@ -22,5 +24,3 @@ export class CommandLine {
     return this.outputTracker;
   }
 }
-
-type Process = Pick<NodeJS.Process, "argv" | "stdout">;

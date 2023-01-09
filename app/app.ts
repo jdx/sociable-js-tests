@@ -1,4 +1,4 @@
-import { rot13 } from "../rot13";
+import { rot13 } from "../logic/rot13";
 import { CommandLine } from "../infra/command_line";
 
 export class App {
